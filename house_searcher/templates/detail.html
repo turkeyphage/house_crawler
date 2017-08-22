@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <title>搜尋結果</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container ">
+    <div class="page-content" style="padding: 8px;">
+    
+      <div class="row" style="margin-top: 20px;"></div>
+
+      <div class="panel panel-info">
+        <div class="panel-heading">售價</div>
+        <div class="panel-body">
+          <h1>{{detailValue.price}}</h1>
+            <div class="panel panel-info">
+            <div class="panel-heading">地址</div>
+            <div class="panel-body">
+              <h4>{{detailValue.address}}</h4>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-xs-6">
+              <div class="panel panel-info">
+                <div class="panel-heading">坪數</div>
+                <div class="panel-body">
+                  <h4><label>土地登記:</label> {{detailValue.field}}</h4>
+                  <h4><label>建物登記:</label> {{detailValue.building}}</h4>
+                </div>
+              </div>
+              <div class="panel panel-info">
+                <div class="panel-heading">電梯與車位</div>
+                <div class="panel-body">
+                 
+                  {% if detailValue.park > 0 %}
+                    <img width=50px height=50px src="/static/icon_parking.png">
+                  {% endif %}
+                  {% if detailValue.elevator > 0 %}
+                    <img width=50px height=50px src="/static/icon_elevator.png">
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="panel panel-info">
+                <div class="panel-heading">資訊</div>
+                <div class="panel-body">
+                  <h4><label>屋齡:</label> {{detailValue.year}}</h4>
+                  <h4><label>格局:</label> {{detailValue.pattern}}</h4>
+                  <h4><label>詳述:</label> {{detailValue.desc}}</h4>
+                  <h4><label>樓層:</label> {{detailValue.floor}}</h4>
+                  <h4><label>類型:</label> {{detailValue.type}}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <a href={{detailValue.url}}>{{detailValue.url}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
